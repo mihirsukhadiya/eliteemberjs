@@ -1,0 +1,22 @@
+<div class="flyout-modal">
+  <div class="header">
+    Settings
+    <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close" {{action toggleProperty}}>&times;</button>
+  </div>
+  <div class="flyout-body">
+    <div class="list-group">
+      <span {{action toggleProperty}}>
+        {{#if appMeta.isEndUser}}
+          {{#link-to "settings.users" tagName="li" class="list-group-item cursor-pointer"}}&nbsp;&nbsp;&nbsp;<i class="light-grey fas fa-user-friends"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Users{{/link-to}}
+          {{#link-to "settings.roles.list" tagName="li" class="list-group-item cursor-pointer"}}&nbsp;&nbsp;&nbsp;<i class="light-grey fas fa-user-tag"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roles{{/link-to}}
+        {{else}}
+          {{#link-to "settings.customers" tagName="li" class="list-group-item cursor-pointer"}}&nbsp;&nbsp;&nbsp;Customers{{/link-to}}
+          {{#if canShowDistributer}}
+            {{#link-to "settings.distributer" tagName="li" class="list-group-item cursor-pointer"}}&nbsp;&nbsp;&nbsp;Distributer{{/link-to}}
+          {{/if}}
+          {{#link-to "settings.dealer" tagName="li" class="list-group-item cursor-pointer"}}&nbsp;&nbsp;&nbsp;Dealer{{/link-to}}
+        {{/if}}
+      </span>
+    </div>
+  </div>
+</div>

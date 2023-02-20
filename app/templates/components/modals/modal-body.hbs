@@ -1,0 +1,12 @@
+<div class="modal-body">
+  {{#if (not-equal errorMsgs.length 0)}}
+    <div class="alert alert-danger">
+      <ul class="pl-16">
+        {{#each errorMsgs as |error|}}
+          <li>{{error}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+  {{yield}}
+</div>

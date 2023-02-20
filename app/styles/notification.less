@@ -1,0 +1,39 @@
+.notification-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  margin: 0 auto;
+  color: #fff;
+  max-width: 500px;
+  .message-container {
+    display: table;
+    padding: 7px 10px;
+    margin: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 2px 1px rgba(0,0,0,.2);
+    &.success {
+      background-color: #53B05A;
+    }
+    &.failure {
+      background-color: #F46558;
+    }
+  }
+  .message {
+    margin: 0 8px;
+    max-width: 325px;
+  }
+}
+
+.notify-in {
+  transform: translateY(0px);
+  opacity: 1;
+  transition: transform 3s ease 0s;
+}
+.notify-out {
+  transform: translateY(0px);
+  opacity: 0;
+  transition: opacity 1s ease;
+}

@@ -1,0 +1,76 @@
+.table-overhead {
+  position: fixed;
+  height: 50px;
+  width: 77%;
+  padding: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'Lato', sans-serif;
+  &.map-table-head {
+    width: 26%;
+  }
+}
+.table-list {
+  height: calc(~"100% - 50px");
+  position: relative;
+  top: 50px;
+  bottom: 2px;
+  overflow-y: auto;
+}
+.table {
+  border-collapse: separate;
+  width: 100%;
+  > thead {
+    > tr {
+        > th {
+          position: sticky;
+          top: 0;
+          padding: 8px 8px 8px 15px;
+          vertical-align: middle;
+          border-bottom: 1px solid #ddd;
+          background-color: white;
+          z-index: 1;
+        }
+      }
+    }
+  > tbody {
+    > tr:not(.empty-list) {
+      font-size: 13px;
+      &.entity-table-list {
+        &:nth-child(2n) {
+          background-color: #f6f5f5;
+        }
+        td {
+          padding: 10px 8px 10px 15px !important;
+        }
+      }
+      >td {
+        padding: 12px 8px 12px 15px;
+        vertical-align: middle;
+      }
+      &:last-child {
+        >td {
+          border-bottom: 1px solid #ddd;
+        }
+      }
+      &.active {
+        > td {
+          background-color: #ceefff;
+        }
+        &:hover {
+          >td {
+            background-color: #ceefff;
+          }
+        }
+      }
+    }
+  }
+}
+//not used this class
+.box-shadow {
+  box-shadow: 2px 2px 10px grey;
+}
+.table tr .msg {
+    padding: 0 50px;
+    font-size: 15px;
+}

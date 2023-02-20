@@ -1,0 +1,68 @@
+.top-navbar {
+  position: sticky;
+  top: 0px; /* to make it act like ssticky */
+  height: 50px;
+  width: 100%;
+  color: #FFF;
+  font-size: 14px;
+  letter-spacing: 1px;
+  z-index: 10;
+  background-color: @theme;
+}
+.top-nav-bar > ul {
+  display: flex;
+  align-items: center;
+  padding-top: 14px;
+  margin-bottom: 0px;
+}
+.nav-items {
+  color: white;
+  padding-right: 20px;
+  cursor: pointer;
+  &:hover, &:focus, &.active {
+    color: #d6dce4;
+    text-decoration: none;
+  }
+}
+.dropdown-menu {
+  min-width: 104px;
+  box-shadow: -3px 1px 6px 1px rgba(0, 0, 0, 0.176);
+  margin-top: 4px;
+  margin-right: 10px;
+  letter-spacing: 0px;
+  font-weight: 100;
+  font-family: 'Lato', sans-serif;
+  li {
+    a {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #000;
+      background-color: #FFF;
+      &:hover, &:focus {
+       background-color: #e9ecef;
+      }
+    }
+  }
+  &.user-profile {
+    min-height: 105px;
+    margin-top: 0px;
+    top: 46px;
+    li:first-of-type {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
+.logo {
+  padding-left: 15px;
+  height: 48px;
+}
+.arrow-bottom {
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f3f8fe;
+  right: 73px;
+  top: 40px;
+}

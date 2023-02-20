@@ -1,0 +1,94 @@
+{{! template-lint-disable no-invalid-interactive }}
+<div class="pull-left">
+  <img src="{{rootURL}}assets/flash-logo.jpg" class="logo" alt="company-logo">
+</div>
+<ul class="pull-right">
+  {{!--<span {{action "routeChanged" "devices"}}>
+    {{#link-to "devices" class="nav-items"}}
+      Devices
+    {{/link-to}}
+  </span>--}}
+  <div class="btn-group">
+    <a class="nav-items dropdown-toggle {{if (or (equal currentTab "locate") (equal currentTab "history")) "active"}}" data-toggle="dropdown">
+      Map
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li {{action "routeChanged" "locate"}}>
+        {{#link-to "map" class="dropdown-item"}}
+          {{svg-jar "location" class="icon icon-xsmall text-bottom mr-3"}}Locate
+        {{/link-to}}
+      </li>
+      <li {{action "routeChanged" "history"}}>
+        {{#link-to "history" class="dropdown-item"}}
+          {{svg-jar "history-map" class="icon icon-xsmall text-bottom mr-3"}}History
+        {{/link-to}}
+      </li>
+    </ul>
+  </div>
+  {{!--
+  {{#unless appMeta.isEndUser}}
+    <div class="btn-group">
+      <a class="nav-items dropdown-toggle {{if (or (equal currentTab "customers") (equal currentTab "dealers") (equal currentTab "distributers")) "active"}}" data-toggle="dropdown">
+        Users
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+        {{#if (or appMeta.isSuperAdmin appMeta.isDistributer)}}
+          <li {{action "routeChanged" "distributers"}}>
+            {{#link-to "settings.distributer" class="dropdown-item"}}
+              Distributers
+            {{/link-to}}
+          </li>
+        {{/if}}
+        <li {{action "routeChanged" "dealers"}}>
+          {{#link-to "settings.dealer" class="dropdown-item"}}
+            Dealers
+          {{/link-to}}
+        </li>
+        <li {{action "routeChanged" "customers"}}>
+          {{#link-to "settings.customers" class="dropdown-item"}}
+            Customers
+          {{/link-to}}
+        </li>
+      </ul>
+    </div>
+  {{/unless}}
+  --}}
+  <span {{action "routeChanged" "reports"}}>
+    {{#link-to "reports" class="nav-items" }}
+      Analytics
+    {{/link-to}}
+  </span>
+  <span {{action "routeChanged" "pilot"}}>
+    {{#link-to "pilot" class="nav-items" }}
+      Pilot
+    {{/link-to}}
+  </span>
+  <span {{action "logoutCurrentUser"}}>
+    <a class="nav-items">
+      Logout
+    </a>
+  </span>
+  <!-- <a class="nav-items" {{action toggleProperty "showSettingsSideBar"}}>{{svg-jar "settings" class="icon icon-small"}}</a>
+  {{#if showSettingsSideBar}}
+    <i class="arrow-bottom"></i>
+    {{#sidebar-wormhole routeChanged=(action "routeChanged") action=(action toggleProperty "showSettingsSideBar")}}
+      {{settings-sidebar toggleProperty=(action toggleProperty "showSettingsSideBar")}}
+    {{/sidebar-wormhole}}
+  {{/if}} -->
+  <!--<a class="nav-items dropdown-toggle" data-toggle="dropdown" {{action toggleProperty "showUserSideBar"}}>{{svg-jar "user-profile" class="icon icon-medium"}}</a>
+  <ul class="dropdown-menu user-profile">
+    <li><a href="#" class="no-pointer-events dropdown-item">Hi there</a></li>
+     <li class="pt-3" {{action "routeChanged" "history"}}>
+      {{#link-to "history" class="dropdown-item"}}
+        Change Password
+      {{/link-to}}
+    </li>
+    <li {{action "logoutCurrentUser"}}>
+      <a class="dropdown-item">
+        Logout
+      </a>
+    </li>
+  </ul>-->
+</ul>

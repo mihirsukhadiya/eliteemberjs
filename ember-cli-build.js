@@ -4,9 +4,60 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+      fingerprint: {
+        enabled: false
+      },
+      vendorFiles: {
+        'bootstrap.js': {
+          development: 'node_modules/bootstrap/dist/js/bootstrap.js',
+          production: 'node_modules/bootstrap/dist/js/bootstrap.min.js'
+        }
+      },
+      svgJar: {
+        optimizer: {
+          sourceDirs: ['/svgs'],
+          plugins: [
+            { removeViewBox: false },
+            { removeXMLProcInst: true },
+            { removeComments: true },
+            { removeMetadata: true },
+            { removeEditorsNSData: true },
+            { removeHiddenElems: true },
+            { removeEmptyText: true },
+            { removeEmptyAttrs: true },
+            { removeEmptyContainers: true },
+            { removeUnusedNS: true },
+            { removeTitle: false },
+            { removeDesc: false },
+            { removeUselessDefs: true },
+            { removeUnknownsAndDefaults: true },
+            { removeNonInheritableGroupAttrs: true },
+            { removeUselessStrokeAndFill: true },
+            { cleanupAttrs: true },
+            { convertStyleToAttrs: true },
+            { cleanupIDs: false },
+            { cleanupNumericValues: true },
+            { cleanupEnableBackground: true },
+            { convertColors: true },
+            { convertShapeToPath: true },
+            { moveElemsAttrsToGroup: true },
+            { moveGroupAttrsToElems: true },
+            { collapseGroups: true },
+            { convertPathData: true },
+            { convertTransform: true },
+            { mergePaths: true },
+            { minifyStyles: true },
+            {
+              inlineStyles: {
+                onlyMatchedOnce: false,
+                removeMatchedSelectors: true
+              }
+            }
+          ]
+        }
+      }
   });
-
+  app.import('vendor/font-awesome/font-awesome.min.css');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

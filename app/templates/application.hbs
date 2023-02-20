@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+{{outlet "modal"}}
+<NavBar class="top-navbar"/>
+<div id="side-bar"></div>
+<div class="main-frame">
+  <AccessibilityTester @top="5" @left="900"/>
+  {{#if isLoading}}
+    {{loading-circles}}
+  {{else}}
+    {{outlet}}
+  {{/if}}
+</div>

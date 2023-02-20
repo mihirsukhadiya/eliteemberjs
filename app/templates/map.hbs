@@ -1,0 +1,39 @@
+{{#if (equal currentRoute "history")}}
+  <div class="time-distance-navbar">
+    <!-- <div class="fill-height text-vertical-center pull-left">
+      <div class="btn-toolbar">
+        <a class="btn btn-primary {{if (equal deviceId '') "disabled"}}" href={{dowloadLink}}>
+          <span>
+            <i class="fas fa-file-download"></i>
+          </span>
+        </a>
+      </div>
+    </div> -->
+    <div class="fill-height text-vertical-center pull-left">
+      {{datetime-rangepicker}}
+      <span class="text-semibold distance-label">Map Time:</span>
+      <span>{{mapFromTime}}</span>
+      <span class="text-semibold distance-label"> - </span>
+      <span class="mr-4">{{mapToTime}}</span>
+      <!-- <span class="text-semibold distance-label">Distance:</span>
+      <span class="mr-4">{{distance}}</span> -->
+    </div>
+  </div>
+{{else}}
+  <div class="time-distance-navbar">
+    <div class="fill-height text-vertical-center pull-left">
+      <!-- <span class="text-semibold distance-label"><a class="no-decor pull-right {{if (or (equal deviceId "") distanceLoading) "disable-link"}}" {{action "calculateDistance" deviceId}}>Total Distance Covered Today</a></span>
+      {{#if distanceLoading}}
+        {{svg-jar "loading-spin" class="icon icon-small text-bottom pull-right mr-3"}}
+      {{else}}
+        {{distance}}
+      {{/if}} -->
+    </div>
+  </div>
+{{/if}}
+<div class="card-view content-center {{if (equal currentRoute "map") "map-card"}}" id="g-map">
+    <img src="{{rootURL}}assets/globe-search.png" class="map-not-found" alt="choose a vehicle to know its location">
+</div>
+<div class="card-view vehicle-list {{if (equal currentRoute "map") "map-card"}}">
+  {{map-table model=model notifyError=(action send "notifyError") deviceId=deviceId distance=distance mapFromTime=mapFromTime mapToTime=mapToTime currentRoute=currentRoute}}
+</div>

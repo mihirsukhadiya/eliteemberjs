@@ -1,0 +1,43 @@
+<div class="table-overhead">
+  {{title}}
+  {{#if newEntityLabel}}
+    <a class="no-decor pull-right mr-3" {{action openModal}} {{! template-lint-disable no-invalid-interactive }}>+ {{newEntityLabel}}</a>
+  {{/if}}
+</div>
+<div class="table-list">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>sno</th>
+        {{#each headerColumns as |hcolumn|}}
+          <th>{{hcolumn}}</th>
+        {{/each}}
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |entityInfo index|}}
+        <tr class="entity-table-list">
+          <td></td>
+          <td>{{addition index 1}}</td> 
+          {{#each bodyColumns as |columnProp|}}
+            <td>{{get entityInfo columnProp}}</td>
+          {{/each}}
+          {{#if entityAction.delete}}
+            <td {{action openModal entityInfo}} {{! template-lint-disable no-invalid-interactive }}><i class="fas fa-trash-alt cursor-pointer text-muted"></i></td>
+          {{/if}}
+          <td {{action openModal entityInfo}} {{! template-lint-disable no-invalid-interactive }}>{{svg-jar "edit" class="cursor-pointer"}}</td>
+        </tr>
+      {{else}}
+        <tr class="empty-list">
+          <td class="text-center" colspan={{numberOfColumns}}>
+            <h4 class="text-muted msg">
+              there are no {{entityName}}
+            </h4>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

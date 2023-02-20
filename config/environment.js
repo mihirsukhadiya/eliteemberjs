@@ -2,28 +2,35 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'hello-world',
+    modulePrefix: 'gps',
     environment,
-    rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
+        // e.g. 'with-controller': true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false,
-      },
+        Date: false
+      }
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    },
+    }
   };
 
   if (environment === 'development') {
+    ENV['ember-accessibility'] = {
+      isEnabled: process.env.CI_COMMIT_REF_SLUG !== 'master',
+      axe: {
+        restoreScroll: true,
+      }
+    };
+    ENV.rootURL = '/';
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -44,8 +51,13 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.rootURL = '/app/';
+
     // here you can enable a production-specific feature
   }
-
+  ENV.contentSecurityPolicy = {
+    // ... other stuff here
+    'connect-src': "'self' http://localhost:80"
+  }
   return ENV;
 };

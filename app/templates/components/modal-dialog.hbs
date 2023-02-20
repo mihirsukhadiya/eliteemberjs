@@ -1,0 +1,8 @@
+<div class="modal-backdrop fade {{animateClass}}">&nbsp;</div>
+<div class="overflow-auto modal fade show {{animateClass}}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      {{yield (action "close")}}
+    </div>
+  </div>
+</div>

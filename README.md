@@ -1,21 +1,57 @@
-![Ember Logo](https://github.com/vercel/vercel/blob/main/packages/frameworks/logos/ember.svg)
+# mines-webapp
 
-# Ember Example
+This README outlines the details of collaborating on this Ember application.
+A short introduction of this app could easily go here.
 
-This directory is a brief example of an [Ember](https://emberjs.com/) app that can be deployed to Vercel with zero configuration.
+## Prerequisites
 
-## Deploy Your Own
+You will need the following things properly installed on your computer.
 
-Deploy your own Ember project with Vercel.
+* [Git](https://git-scm.com/)
+* [Node.js](https://nodejs.org/) (with npm)
+* [Ember CLI](https://ember-cli.com/)
+* [Google Chrome](https://google.com/chrome/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/ember&template=ember)
+## Installation
 
-_Live Example: https://ember-template.vercel.app_
+* `git clone <repository-url>` this repository
+* `cd mines-webapp`
+* `npm install`
 
-### How We Created This Example
+## Running / Development
 
-To get started with Ember for deployment with Vercel, you can use the [Ember CLI](https://ember-cli.com/) to initialize the project:
+* `ember serve`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
+* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-```shell
-$ npx ember-cli new ember-project
-```
+### Code Generators
+
+Make use of the many generators for code, try `ember help generate` for more details
+
+### Running Tests
+
+* `ember test`
+* `ember test --server`
+
+### Linting
+
+* `npm run lint:hbs`
+* `npm run lint:js`
+* `npm run lint:js -- --fix`
+
+### Building
+
+* `ember build` (development)
+* `ember build --environment production` (production)
+
+### Deploying
+
+Specify what it takes to deploy your app.
+
+## Further Reading / Useful Links
+
+* [ember.js](https://emberjs.com/)
+* [ember-cli](https://ember-cli.com/)
+* Development Browser Extensions
+  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)

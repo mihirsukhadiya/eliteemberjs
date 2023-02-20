@@ -1,0 +1,17 @@
+<div class="text-center notification-container {{animateClass}}">
+  {{#if message}}
+    <div align="center">
+      <div class="message-container {{if isSuccess 'success' 'failure'}}">
+        <div class="pull-left">
+          <i class="{{if isSuccess 'fas fa-check' 'fas fa-exclamation-triangle'}}"></i>
+        </div>
+        <div class="pull-left msg pl-10">
+          {{message}}
+        </div>
+        {{#unless isSuccess}}
+          <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close" {{action "close"}}>&times;</button>
+        {{/unless}}
+      </div>
+    </div>
+  {{/if}}
+</div>

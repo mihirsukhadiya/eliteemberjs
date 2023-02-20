@@ -1,0 +1,61 @@
+<div class="table-overhead map-table-head">
+  <p class="pull-left">YOUR VEHICLES</p>
+  {{#if additionalOptionLoading}}
+    {{svg-jar "loading-spin" class="icon icon-small text-bottom pull-right mr-3"}}
+  {{/if}}
+  {{#if isHistoryRoute}}
+    <a class="no-decor pull-right {{if (or (equal deviceId "") additionalOptionLoading) "disable-link"}}" {{action "locateDevice" selectedVehicle true}}>Animate Map</a>
+  {{else}}
+    <a class="no-decor pull-right {{if additionalOptionLoading "disable-link"}}" {{action "locateAllDevices" model}}>Map All</a>
+  {{/if}}
+</div>
+<div class="table-list">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+          {{#if false}}  {{! feature to be released in future}}
+            <div class="checkbox check-transparent">
+              <input type="checkbox" id="checkbox-all">
+              <label class="checkbox-label" for="checkbox-all">
+              </label>
+            </div>
+          {{/if}}
+        </th>
+        <th>Device Id</th>
+        <th>Vehicle Type</th>
+        <th>Operator Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |vehicleInfo|}}
+        <tr class="cursor-pointer {{if vehicleInfo.activeState "active"}}">
+          <td>
+            {{#if false}} {{! feature to be released in future}}
+              <div class="checkbox check-transparent">
+                <input type="checkbox" id={{vehicleInfo.id}}>
+                <label for={{vehicleInfo.id}} class="checkbox-label">
+                </label>
+              </div>
+            {{/if}}
+          </td>
+          <td {{action "locateDevice" vehicleInfo}} {{! template-lint-disable no-invalid-interactive }}>{{vehicleInfo.id}}</td>
+          <td {{action "locateDevice" vehicleInfo}} {{! template-lint-disable no-invalid-interactive }}>{{vehicleInfo.eqpt_type}}</td>
+          <td {{action "locateDevice" vehicleInfo}} {{! template-lint-disable no-invalid-interactive }}>{{vehicleInfo.operator_name}}</td>
+          <td class="min-width45">
+            {{#if vehicleInfo.locationLoading}}
+              {{svg-jar "loading-spin" class="icon icon-small text-bottom"}}
+            {{/if}}
+          </td>
+        </tr>
+      {{else}}
+        <tr class="empty-list">
+          <td class="text-center" colspan="4">
+            <h4 class="text-muted msg">There are no devices</h4>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

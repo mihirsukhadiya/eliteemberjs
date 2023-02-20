@@ -1,7 +1,7 @@
 ---
 language: node_js
 node_js:
-  - "8"
+  - "6"
 
 sudo: false
 dist: trusty
@@ -15,8 +15,11 @@ cache:
 
 env:
   global:
-    # See https://github.com/ember-cli/ember-cli/blob/master/docs/build-concurrency.md
+    # See https://git.io/vdao3 for details.
     - JOBS=1
+
+before_install:
+  - npm config set spin false
 
 script:
   - npm run lint:hbs

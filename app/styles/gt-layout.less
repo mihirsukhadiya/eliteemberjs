@@ -1,0 +1,131 @@
+.pt-3 {
+  padding-top: 7px;
+}
+.pt-2 {
+  padding-top: 14px !important;
+}
+.mr-3 {
+  margin-right: 16px;
+}
+.mr-4 {
+  margin-right: 23px;
+}
+.mb-0 {
+  margin-bottom: 0px;
+}
+.pl-0 {
+  padding-left: 0px;
+}
+.pl-16 {
+  padding-left: 16px;
+}
+.pl-10 {
+  padding-left: 10px;
+}
+.ml-20 {
+  margin-left: 20px;
+}
+.p-20 {
+  padding: 20px;
+}
+.min-width45 {
+  min-width: 45px;
+}
+.rounded5 {
+  border-radius: 5px;
+}
+
+.text-bottom {
+  vertical-align: text-bottom;
+}
+.overflow-auto {
+  overflow: auto;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.no-pointer-events {
+  pointer-events: none;
+}
+.text-vertical-center {
+  display: flex;
+  align-items: center;
+}
+.content-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-semibold {
+ font-weight: 600;
+}
+.fill-height {
+   height: 100%;
+}
+.light-grey {
+  color: #ccc;
+}
+.list-group-item {
+  &:first-child, &:last-child {
+    border-radius: 0;
+  }
+  &.active {
+    color: #000;
+    background-color: #FFF;
+  }
+}
+
+.load-circle1,
+.load-circle2,
+.load-circle3,
+.load-circle4,
+.load-circle5 {
+  width: 8px;
+  height: 8px;
+  background: grey;
+  display: inline-block;
+  border-radius: 20px;
+  .GTanimation;
+}
+.GTanimation(@l-base: 1.5s) {
+  animation: loader @l-base infinite;
+}
+.GTanimation-delay(@lb-color: 0.25s) {
+  animation-delay: @lb-color;
+}
+.change-opacity() {
+  from {
+    opacity: 1;
+    .scale(1);
+  }
+  to {
+    opacity: 0.25;
+    .scale(0.3);
+  }
+}
+@keyframes loader {
+  .change-opacity;
+}
+.load-circle2 {
+  .GTanimation-delay;
+}
+.load-circle3 {
+  .GTanimation-delay(0.5s);
+}
+.load-circle4 {
+  .GTanimation-delay(0.75s);
+}
+.load-circle5 {
+  .GTanimation-delay(1s);
+}
+.white-loading-circle {
+  [class*="load-circle"] {
+    background-color: #fff;
+  }
+}
+.margin-8 {
+  margin: 8%;
+}
+.max-height100 {
+  max-height: 100px;
+}

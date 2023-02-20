@@ -1,0 +1,29 @@
+{{#modal-dialog closeModal=(action send "closeModal") model=model as |close|}}
+  {{modals/modal-header titleName="User Details" close=close}}
+  {{#modals/modal-body model=model}}
+    <form>
+      <div class="form-group row">
+        <div class="col-md-7">
+          <label class="form-control-label mb-0 pl-0 required">Email</label>
+          {{input value=model.email_id class="form-control" placeholder="Email Id"}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-7">
+          <label class="form-control-label mb-0 pl-0 required">User Name</label>
+          {{input value=model.user_name class="form-control" placeholder="Email Id"}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-7">
+          <label class="form-control-label mb-0 pl-0">Role Name</label>
+          {{input value=model.role_name class="form-control" placeholder="Role Name"}}
+        </div>
+      </div>
+    </form>
+  {{/modals/modal-body}}
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-default" {{action close}}>Close</button>
+  </div>
+{{/modal-dialog}}
